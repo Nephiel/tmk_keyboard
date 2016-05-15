@@ -74,7 +74,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-----------------------------------------------------------|
      * |     |Mut|Vl-|Vl+|F20|   |   |PUp|Up |PDn|Prt|SLk|Ins|     |
      * |------------------------------------------------------.    |
-     * |Backsp|f11|Prv|Stp|Ply|Nxt|Hom|Lft|Dwn|Rgt|End|   |Pau|    |
+     * |      |f11|Prv|Stp|Ply|Nxt|Hom|Lft|Dwn|Rgt|End|   |Pau|    |
      * |--------------------------O--------------------------------|
      * |    |   |f12|f13|f14|f15|   |fn2|PDn|   |   |Del|          |
      * |-----------------------------------------------------------|
@@ -91,7 +91,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(
         GRV ,F1  ,F2  ,F3  ,F4  ,F5  ,F6  ,F7  ,F8  ,F9  ,F10 ,F11 ,F12 ,TRNS, \
         TRNS,MUTE,VOLD,VOLU,F20 ,TRNS,TRNS,PGUP,UP  ,PGDN,PSCR,SLCK,INS ,TRNS, \
-        BSPC,FN11,MPRV,MSTP,MPLY,MNXT,HOME,LEFT,DOWN,RGHT,END ,TRNS,PAUS,      \
+        TRNS,FN11,MPRV,MSTP,MPLY,MNXT,HOME,LEFT,DOWN,RGHT,END ,TRNS,PAUS,      \
         TRNS,TRNS,FN12,FN13,FN14,FN15,TRNS,FN2 ,PGDN,TRNS,TRNS,DEL ,TRNS,      \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,FN1 ,TRNS                           )
 };
