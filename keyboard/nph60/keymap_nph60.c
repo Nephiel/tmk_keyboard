@@ -224,11 +224,11 @@ const uint16_t PROGMEM fn_actions[] = {
     [7] = ACTION_FUNCTION_TAP(CUSTOM_RCTL),  // Tap for ']', hold for RCtrl
     [8] = ACTION_FUNCTION_TAP(CUSTOM_LALT),  // Tap for '{', hold for LAlt
     [9] = ACTION_FUNCTION_TAP(CUSTOM_RALT),  // Tap for '}', hold for RAlt
-   [10] = ACTION_MODS_TAP_KEY(MOD_RCTL, KC_CAPS),  // Tap for CapsLock, hold for RCtrl
-   [11] = ACTION_MODS_KEY(MOD_RCTL, KC_A),   // fn+X as Ctrl+A (Select All)
-   [12] = ACTION_MODS_KEY(MOD_RCTL, KC_Z),   // fn+X as Ctrl+Z (Undo)
-   [13] = ACTION_MODS_KEY(MOD_RCTL, KC_X),   // fn+X as Ctrl+X (Cut)
-   [14] = ACTION_MODS_KEY(MOD_RCTL, KC_C),   // fn+X as Ctrl+C (Copy)
-   [15] = ACTION_MODS_KEY(MOD_RCTL, KC_V)    // fn+X as Ctrl+V (Paste)
+   [10] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_CAPS),  // Tap for CapsLock, hold for LCtrl
+   [11] = ACTION_MODS_KEY(MOD_LCTL, KC_A),   // fn+X as Ctrl+A (Select All)
+   [12] = ACTION_MODS_KEY(MOD_LCTL, KC_Z),   // fn+X as Ctrl+Z (Undo)
+   [13] = ACTION_MODS_KEY(MOD_LCTL, KC_X),   // fn+X as Ctrl+X (Cut)
+   [14] = ACTION_MODS_KEY(MOD_LCTL, KC_C),   // fn+X as Ctrl+C (Copy)
+   [15] = ACTION_MODS_KEY(MOD_LCTL, KC_V)    // fn+X as Ctrl+V (Paste)
 //  [x] = ACTION_MACRO(FOUR_SPACES) // Send 4 spaces
 };
