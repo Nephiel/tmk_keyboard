@@ -27,6 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "action_util.h"
 #include "action.h"
 #include "hook.h"
+#include "wait.h"
 
 #ifdef DEBUG_ACTION
 #include "debug.h"
@@ -378,6 +379,7 @@ void register_code(uint8_t code)
 #endif
         add_key(KC_CAPSLOCK);
         send_keyboard_report();
+        wait_ms(100);
         del_key(KC_CAPSLOCK);
         send_keyboard_report();
     }
@@ -388,6 +390,7 @@ void register_code(uint8_t code)
 #endif
         add_key(KC_NUMLOCK);
         send_keyboard_report();
+        wait_ms(100);
         del_key(KC_NUMLOCK);
         send_keyboard_report();
     }
@@ -398,6 +401,7 @@ void register_code(uint8_t code)
 #endif
         add_key(KC_SCROLLLOCK);
         send_keyboard_report();
+        wait_ms(100);
         del_key(KC_SCROLLLOCK);
         send_keyboard_report();
     }
@@ -453,6 +457,7 @@ void unregister_code(uint8_t code)
 #endif
         add_key(KC_CAPSLOCK);
         send_keyboard_report();
+        wait_ms(100);
         del_key(KC_CAPSLOCK);
         send_keyboard_report();
     }
@@ -463,6 +468,7 @@ void unregister_code(uint8_t code)
 #endif
         add_key(KC_NUMLOCK);
         send_keyboard_report();
+        wait_ms(100);
         del_key(KC_NUMLOCK);
         send_keyboard_report();
     }
@@ -473,6 +479,7 @@ void unregister_code(uint8_t code)
 #endif
         add_key(KC_SCROLLLOCK);
         send_keyboard_report();
+        wait_ms(100);
         del_key(KC_SCROLLLOCK);
         send_keyboard_report();
     }

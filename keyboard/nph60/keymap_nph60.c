@@ -15,9 +15,9 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * `--------------'   '-----'   '-----'    '-------------------'
      * fn0: hold for Function layer
      * fn3: tap for '<' (NUBS), hold for RAlt
-     * fn4, fn5: Custom Functions for LShift and RShift
-     * fn6, fn7: Custom Functions for LCtrl and RCtrl
-     * fn8, fn9: Custom Functions for Alt and AltGr
+     * fn4, fn5: Custom Functions for LShift and RShift (parenthesis)
+     * fn6, fn7: Custom Functions for LCtrl and RCtrl (brackets)
+     * fn8, fn9: Custom Functions for Alt and AltGr (curly brackets)
      * fn10: tap for CapsLock, hold for RCtrl
      */
     KEYMAP(
@@ -74,25 +74,20 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-----------------------------------------------------------|
      * |     |Mut|Vl-|Vl+|F20|   |   |PUp|Up |PDn|Prt|SLk|Ins|     |
      * |------------------------------------------------------.    |
-     * |      |f11|Prv|Stp|Ply|Nxt|Hom|Lft|Dwn|Rgt|End|   |Pau|    |
+     * |      |   |Prv|Stp|Ply|Nxt|Hom|Lft|Dwn|Rgt|End|   |Pau|    |
      * |--------------------------O--------------------------------|
-     * |    |   |f12|f13|f14|f15|   |fn2|PDn|   |   |Del|          |
+     * |    |   |   |   |   |   |   |fn2|PDn|   |   |Del|          |
      * |-----------------------------------------------------------|
      * |    |    |    |   |     |   |     |    |    |    |fn1 |    |
      * `--------------'   '-----'   '-----'    '-------------------'
      * fn1: toggle Normal Mods layer
      * fn2: toggle Numpad layer
-     * fn11: Ctrl + A (Select All)
-     * fn12: Ctrl + Z (Undo)
-     * fn13: Ctrl + X (Cut)
-     * fn14: Ctrl + C (Copy)
-     * fn15: Ctrl + V (Paste)
      */
     KEYMAP(
         GRV ,F1  ,F2  ,F3  ,F4  ,F5  ,F6  ,F7  ,F8  ,F9  ,F10 ,F11 ,F12 ,TRNS, \
         TRNS,MUTE,VOLD,VOLU,F20 ,TRNS,TRNS,PGUP,UP  ,PGDN,PSCR,SLCK,INS ,TRNS, \
-        TRNS,FN11,MPRV,MSTP,MPLY,MNXT,HOME,LEFT,DOWN,RGHT,END ,TRNS,PAUS,      \
-        TRNS,TRNS,FN12,FN13,FN14,FN15,TRNS,FN2 ,PGDN,TRNS,TRNS,DEL ,TRNS,      \
+        TRNS,TRNS,MPRV,MSTP,MPLY,MNXT,HOME,LEFT,DOWN,RGHT,END ,TRNS,PAUS,      \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,FN2 ,PGDN,TRNS,TRNS,DEL ,TRNS,      \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,FN1 ,TRNS                           )
 };
 
@@ -212,7 +207,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
 /*
  * Function key actions
  */
-const uint16_t PROGMEM fn_actions[] = {
+const action_t PROGMEM fn_actions[] = {
 //  [0] = ACTION_LAYER_MOMENTARY(3),  // Hold for Function layer
     [0] = ACTION_LAYER_TAP_TOGGLE(3), // Hold for Function layer, tap 5 times to toggle
     [1] = ACTION_LAYER_TOGGLE(1), // Toggle Normal Mods layer
@@ -224,11 +219,11 @@ const uint16_t PROGMEM fn_actions[] = {
     [7] = ACTION_FUNCTION_TAP(CUSTOM_RCTL),  // Tap for ']', hold for RCtrl
     [8] = ACTION_FUNCTION_TAP(CUSTOM_LALT),  // Tap for '{', hold for LAlt
     [9] = ACTION_FUNCTION_TAP(CUSTOM_RALT),  // Tap for '}', hold for RAlt
-   [10] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_CAPS),  // Tap for CapsLock, hold for LCtrl
-   [11] = ACTION_MODS_KEY(MOD_LCTL, KC_A),   // fn+X as Ctrl+A (Select All)
-   [12] = ACTION_MODS_KEY(MOD_LCTL, KC_Z),   // fn+X as Ctrl+Z (Undo)
-   [13] = ACTION_MODS_KEY(MOD_LCTL, KC_X),   // fn+X as Ctrl+X (Cut)
-   [14] = ACTION_MODS_KEY(MOD_LCTL, KC_C),   // fn+X as Ctrl+C (Copy)
-   [15] = ACTION_MODS_KEY(MOD_LCTL, KC_V)    // fn+X as Ctrl+V (Paste)
-//  [x] = ACTION_MACRO(FOUR_SPACES) // Send 4 spaces
+   [10] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_CAPS), // Tap for CapsLock, hold for LCtrl
+   //[11] = ACTION_MODS_KEY(MOD_LCTL, KC_A),   // fn+X as Ctrl+A (Select All)
+   //[12] = ACTION_MODS_KEY(MOD_LCTL, KC_Z),   // fn+X as Ctrl+Z (Undo)
+   //[13] = ACTION_MODS_KEY(MOD_LCTL, KC_X),   // fn+X as Ctrl+X (Cut)
+   //[14] = ACTION_MODS_KEY(MOD_LCTL, KC_C),   // fn+X as Ctrl+C (Copy)
+   //[15] = ACTION_MODS_KEY(MOD_LCTL, KC_V),   // fn+X as Ctrl+V (Paste)
+   // [x] = ACTION_MACRO(FOUR_SPACES), // Send 4 spaces
 };

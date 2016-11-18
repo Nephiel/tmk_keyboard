@@ -49,7 +49,6 @@ TARGET_DIR = .
 
 # project specific files
 SRC =	keymap_nph60.c \
-        keymap_common.c \
 	matrix.c \
 	led.c
 
@@ -132,4 +131,3 @@ include $(TMK_DIR)/protocol.mk
 include $(TMK_DIR)/protocol/lufa.mk
 include $(TMK_DIR)/common.mk
 include $(TMK_DIR)/rules.mk
-
