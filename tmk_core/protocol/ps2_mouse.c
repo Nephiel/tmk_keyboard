@@ -79,8 +79,8 @@ uint8_t ps2_mouse_init(void) {
     rcv = ps2_host_send(0x4A);
     phex(rcv); phex(ps2_error); print("\n");
     // default sensitivity value is 0x80
-    print("ps2_mouse_init: send 0x60: ");
-    rcv = ps2_host_send(0x60);
+    print("ps2_mouse_init: send 0x6F: ");
+    rcv = ps2_host_send(0x6F);
     phex(rcv); phex(ps2_error); print("\n");
 
     // set TrackPoint speed
@@ -95,8 +95,8 @@ uint8_t ps2_mouse_init(void) {
     rcv = ps2_host_send(0x60);
     phex(rcv); phex(ps2_error); print("\n");
     // default plateau speed is 0x61
-    print("ps2_mouse_init: send 0x90: ");
-    rcv = ps2_host_send(0x90);
+    print("ps2_mouse_init: send 0x81: ");
+    rcv = ps2_host_send(0x81);
     phex(rcv); phex(ps2_error); print("\n");
 
     // set TrackPoint Negative Inertia factor
@@ -154,8 +154,8 @@ uint8_t ps2_mouse_init(void) {
     rcv = ps2_host_send(0x5E);
     phex(rcv); phex(ps2_error); print("\n");
     // default zTc is 0x26
-    print("ps2_mouse_init: send 0x45: ");
-    rcv = ps2_host_send(0x45);
+    print("ps2_mouse_init: send 0x50: ");
+    rcv = ps2_host_send(0x50);
     phex(rcv); phex(ps2_error); print("\n");
 
     /*
