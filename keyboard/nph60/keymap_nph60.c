@@ -3,7 +3,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* 0: Default layer
      * ,-----------------------------------------------------------.
-     * |Esc| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 | ' | ¡ | Backsp|
+     * |f11| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 | ' | ¡ | Backsp|
      * |-----------------------------------------------------------|
      * | Tab | q | w | e | r | t | y | u | i | o | p | ` | + |Enter|
      * |------------------------------------------------------.    |
@@ -17,11 +17,15 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * fn3: tap for '<' (NUBS), hold for RAlt
      * fn4, fn5: Custom Functions for LShift and RShift (parenthesis)
      * fn6, fn7: Custom Functions for LCtrl and RCtrl (brackets)
-     * fn8, fn9: Custom Functions for Alt and AltGr (curly brackets)
+     * fn8, fn9: Custom Functions for LAlt and RAlt (curly brackets)
      * fn10: tap for CapsLock, hold for RCtrl
+     * fn11: Esc <-------------------------------(most used)
+     *       with RAlt: GRAVE ('\') (RAlt+GRV)       ...
+     *       with fn0:  GRAVE ('º','ª') (GRV)        ...
+     *       with fn0+RAlt: 'RAlt+Esc' <---------(least used)
      */
     KEYMAP(
-        ESC ,1   ,2   ,3   ,4   ,5   ,6   ,7   ,8   ,9   ,0   ,MINS,EQL ,BSPC, \
+        FN11,1   ,2   ,3   ,4   ,5   ,6   ,7   ,8   ,9   ,0   ,MINS,EQL ,BSPC, \
         TAB ,Q   ,W   ,E   ,R   ,T   ,Y   ,U   ,I   ,O   ,P   ,LBRC,RBRC,ENT , \
         FN10,A   ,S   ,D   ,F   ,G   ,H   ,J   ,K   ,L   ,SCLN,QUOT,NUHS,      \
         FN4 ,FN3 ,Z   ,X   ,C   ,V   ,B   ,N   ,M   ,COMM,DOT ,SLSH,FN5 ,      \
@@ -49,7 +53,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* 2: Numpad layer
      * ,-----------------------------------------------------------.
-     * |fn2|   |   |   |   |   |   |Np7|Np8|Np9|   |   |   |       |
+     * |   |   |   |   |   |   |   |Np7|Np8|Np9|   |   |   |       |
      * |-----------------------------------------------------------|
      * |     |   |   |   |   |   |   |Np4|Np5|Np6|   |   |   |Enter|
      * |------------------------------------------------------. Np |
@@ -59,10 +63,9 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-----------------------------------------------------------|
      * |    |    |    |   |     |   |     |    |    |    |    |    |
      * `--------------'   '-----'   '-----'    '-------------------'
-     * fn2: toggle Numpad layer
      */
     KEYMAP(
-        FN2 ,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,P7  ,P8  ,P9  ,TRNS,TRNS,TRNS,TRNS, \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,P7  ,P8  ,P9  ,TRNS,TRNS,TRNS,TRNS, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,P4  ,P5  ,P6  ,TRNS,TRNS,TRNS,PENT, \
         NLCK,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,P1  ,P2  ,P3  ,TRNS,TRNS,PSLS,      \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,P0  ,P0  ,TRNS,TRNS,TRNS,TRNS,      \
@@ -70,7 +73,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* 3: Function and Media layer
      * ,-----------------------------------------------------------.
-     * | º | F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|       |
+     * |   | F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|       |
      * |-----------------------------------------------------------|
      * |     |Mut|Vl-|Vl+|F20|   |   |PUp|Up |PDn|Prt|SLk|Ins|     |
      * |------------------------------------------------------.    |
@@ -84,12 +87,14 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * fn2: toggle Numpad layer
      */
     KEYMAP(
-        GRV ,F1  ,F2  ,F3  ,F4  ,F5  ,F6  ,F7  ,F8  ,F9  ,F10 ,F11 ,F12 ,TRNS, \
+        TRNS,F1  ,F2  ,F3  ,F4  ,F5  ,F6  ,F7  ,F8  ,F9  ,F10 ,F11 ,F12 ,TRNS, \
         TRNS,MUTE,VOLD,VOLU,F20 ,TRNS,TRNS,PGUP,UP  ,PGDN,PSCR,SLCK,INS ,TRNS, \
         TRNS,TRNS,MPRV,MSTP,MPLY,MNXT,HOME,LEFT,DOWN,RGHT,END ,TRNS,PAUS,      \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,FN2 ,PGDN,TRNS,TRNS,DEL ,TRNS,      \
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,FN1 ,TRNS                           )
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,FN1 ,TRNS                           ),
 };
+
+const uint8_t FUNCTION_LAYER_NUMBER = 3;
 
 /*
  * Macro identifiers
@@ -98,7 +103,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 enum macro_id {
     HELLO,
     FOUR_SPACES,
-    ALT_TAB
+    ALT_TAB,
 };
 */
 
@@ -135,7 +140,8 @@ enum function_id {
     CUSTOM_LCTL,
     CUSTOM_RCTL,
     CUSTOM_LALT,
-    CUSTOM_RALT
+    CUSTOM_RALT,
+    CUSTOM_ESC,
 };
 
 /*
@@ -169,11 +175,14 @@ void action_mods_tap_mod_key(keyrecord_t *record, uint8_t mod_held, uint8_t mod_
     }
 }
 
+
 /*
  * Function definitions
  */
 void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
+    void (*custom_esc_method)(uint8_t) = (record->event.pressed) ? &add_key : &del_key;
+    uint8_t ralted = get_mods() & (MOD_BIT(KC_RALT) | MOD_BIT(KC_RALT));
     switch (id) {
         case CUSTOM_LSFT:
             action_mods_tap_mod_key(record, KC_LSFT, // Mod to send when held
@@ -199,6 +208,18 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
             action_mods_tap_mod_key(record, KC_RALT, // Mod to send when held
                                             KC_RALT, KC_NUHS); // Mod+Key to send when tapped
             break;
+        case CUSTOM_ESC:
+            // This makes it easier to type a backslash (simply RAlt+Esc).
+            // If you actually need to send RAlt+Esc, use Fn0+RAlt+Esc.
+	    if (layer_state & (1<<FUNCTION_LAYER_NUMBER)) {
+                // Function layer is active, send Esc if RAlt is down
+                custom_esc_method(ralted ? KC_ESCAPE : KC_GRAVE);
+            } else {
+                // Function layer is inactive, send a backslash if RAlt is down
+                custom_esc_method(ralted ? KC_GRAVE : KC_ESCAPE);
+            }
+            send_keyboard_report();
+            break;
         default:
             break;
     }
@@ -220,6 +241,7 @@ const action_t PROGMEM fn_actions[] = {
     [8] = ACTION_FUNCTION_TAP(CUSTOM_LALT),  // Tap for '{', hold for LAlt
     [9] = ACTION_FUNCTION_TAP(CUSTOM_RALT),  // Tap for '}', hold for RAlt
    [10] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_CAPS), // Tap for CapsLock, hold for LCtrl
+   [11] = ACTION_FUNCTION(CUSTOM_ESC), // RAlt+Esc for '\', fn0+Esc for 'º', fn0+Ralt+Esc for 'Ralt+Esc'
    //[11] = ACTION_MODS_KEY(MOD_LCTL, KC_A),   // fn+X as Ctrl+A (Select All)
    //[12] = ACTION_MODS_KEY(MOD_LCTL, KC_Z),   // fn+X as Ctrl+Z (Undo)
    //[13] = ACTION_MODS_KEY(MOD_LCTL, KC_X),   // fn+X as Ctrl+X (Cut)
